@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Maliya AI</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🤖
+        </div>
+
+        <div class="logo-text">
+
+            <h1>Maliya AI</h1>
+
+            <span>
+                Personal AI Assistant
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-buttons">
+
+
+        <!-- MEMORY -->
+
+        <button
+            id="memoryButton"
+            class="header-button"
+            title="Memory"
+        >
+            🧠
+        </button>
+
+
+        <!-- SETTINGS -->
+
+        <button
+            id="settingsButton"
+            class="header-button"
+            title="Settings"
+        >
+            ⚙️
+        </button>
+
+
+        <!-- ACCOUNT -->
+
+        <button
+            id="accountButton"
+            class="account-button"
+            title="Account"
+            type="button"
+        >
+
+            <img
+                id="accountPhoto"
+                src=""
+                alt="Account"
+            >
+
+            <span id="accountName">
+                Account
+            </span>
+
+            <span class="account-arrow">
+                ▾
+            </span>
+
+        </button>
+
+
+        <!-- ACCOUNT MENU -->
+
+        <div
+            id="accountMenu"
+            class="account-menu"
+        >
+
+            <div class="account-menu-user">
+
+                <img
+                    id="menuPhoto"
+                    src=""
+                    alt="Profile"
+                >
+
+                <div>
+
+                    <strong id="menuName">
+                        User
+                    </strong>
+
+                    <span id="menuEmail">
+                        user@email.com
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="account-divider"></div>
+
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+                type="button"
+            >
+
+                🚪
+
+                <span>
+                    Logout
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================================================= -->
+<!-- CHAT -->
+<!-- ================================================= -->
+
+<main class="chat-container">
+
+    <div
+        id="chat"
+        class="chat"
+    >
+
+        <div class="message ai-message">
+
+            <div class="avatar">
+                🤖
+            </div>
+
+            <div class="bubble">
+
+                ආයුබෝවන්! 👋
+
+                <br><br>
+
+                මම <b>Maliya AI</b>.
+
+                <br><br>
+
+                ඔබට මට message එකක් type
+                කරන්න හෝ 🎤 voice එකෙන් කතා
+                කරන්න පුළුවන්.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- ================================================= -->
+<!-- INPUT -->
+<!-- ================================================= -->
+
+<div class="input-area">
+
+    <input
+        id="messageInput"
+        type="text"
+        placeholder="Maliya AI ට message එකක් type කරන්න..."
+        autocomplete="off"
+        disabled
+    >
+
+
+    <button
+        id="micButton"
+        class="mic-button"
+        title="Voice Input"
+        type="button"
+        disabled
+    >
+        🎤
+    </button>
+
+
+    <button
+        id="sendButton"
+        class="send-button"
+        title="Send"
+        type="button"
+        disabled
+    >
+        ➤
+    </button>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- MEMORY PANEL -->
+<!-- ================================================= -->
+
+<div
+    id="memoryPanel"
+    class="side-panel memory-panel"
+>
+
+    <div class="panel-header">
+
+        <h2>
+            🧠 Maliya AI Memory
+        </h2>
+
+        <button
+            id="closeMemory"
+            class="close-button"
+            type="button"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div id="memoryList">
+
+        <p class="empty-memory">
+            Memory loading...
+        </p>
+
+    </div>
+
+
+    <button
+        id="clearMemory"
+        class="clear-memory"
+        type="button"
+    >
+        🗑️ Clear Memory
+    </button>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- SETTINGS PANEL -->
+<!-- ================================================= -->
+
+<div
+    id="settingsPanel"
+    class="side-panel settings-panel"
+>
+
+    <div class="panel-header">
+
+        <h2>
+            ⚙️ Settings
+        </h2>
+
+        <button
+            id="closeSettings"
+            class="close-button"
+            type="button"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <!-- VOICE OUTPUT -->
+
+    <div class="setting-item">
+
+        <label>
+            🔊 Voice Output
+        </label>
+
+        <label class="switch">
+
+            <input
+                type="checkbox"
+                id="voiceOutput"
+            >
+
+            <span class="slider"></span>
+
+        </label>
+
+    </div>
+
+
+    <!-- VOICE INPUT -->
+
+    <div class="setting-item">
+
+        <label>
+            🎤 Voice Input
+        </label>
+
+        <label class="switch">
+
+            <input
+                type="checkbox"
+                id="voiceInput"
+                checked
+            >
+
+            <span class="slider"></span>
+
+        </label>
+
+    </div>
+
+
+    <!-- VOICE SPEED -->
+
+    <div class="setting-item vertical">
+
+        <label>
+            🔊 Voice Speed
+        </label>
+
+        <input
+            id="voiceSpeed"
+            type="range"
+            min="0.5"
+            max="1.5"
+            step="0.1"
+            value="1"
+        >
+
+    </div>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- FIREBASE -->
+<!-- ================================================= -->
+
+<script type="module">
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+
+/* =====================================================
+   FIREBASE CONFIG
+   ===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyDSLOqXkdFYu-pZZlGi7KF0CObPPJtJxs8",
+
+    authDomain:
+        "maliya-ai.firebaseapp.com",
+
+    projectId:
+        "maliya-ai",
+
+    storageBucket:
+        "maliya-ai.firebasestorage.app",
+
+    messagingSenderId:
+        "1078836043420",
+
+    appId:
+        "1:1078836043420:web:a08a5c669b54229fecd759",
+
+    measurementId:
+        "G-KY26PK219Z"
+
+};
+
+
+
+/* =====================================================
+   INITIALIZE FIREBASE
+   ===================================================== */
+
+const firebaseApp =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const auth =
+    getAuth(
+        firebaseApp
+    );
+
+
+
+/* =====================================================
+   MAKE AUTH AVAILABLE TO script.js
+   ===================================================== */
+
+window.maliyaAuth =
+    auth;
+
+
+
+/* =====================================================
+   LOGOUT FUNCTION
+   ===================================================== */
+
+window.maliyaLogout =
+    async function () {
+
+        await signOut(
+            auth
+        );
+
+        window.location.href =
+            "/login.html";
+
+    };
+
+
+
+/* =====================================================
+   AUTH STATE
+   ===================================================== */
+
+onAuthStateChanged(
+    auth,
+    function (user) {
+
+        console.log(
+            "🔥 Firebase auth state:",
+            user
+        );
+
+
+        /* =============================================
+           NOT LOGGED IN
+           ============================================= */
+
+        if (!user) {
+
+            window.maliyaUser =
+                null;
+
+
+            window.location.href =
+                "/login.html";
+
+            return;
+
+        }
+
+
+        /* =============================================
+           LOGGED IN
+           ============================================= */
+
+        window.maliyaUser =
+            user;
+
+
+        console.log(
+            "✅ Maliya AI logged in:",
+            user.email
+        );
+
+
+        /* =============================================
+           SEND EVENT
+           ============================================= */
+
+        document.dispatchEvent(
+
+            new CustomEvent(
+                "maliya-auth-ready",
+                {
+                    detail: user
+                }
+            )
+
+        );
+
+    }
+);
+
+</script>
+
+
+
+<!-- ================================================= -->
+<!-- MAIN JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script
+    src="/script.js"
+></script>
+
+
+</body>
+
+</html>
