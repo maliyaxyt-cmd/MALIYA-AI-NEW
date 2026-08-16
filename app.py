@@ -5,7 +5,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import auth
 
-from config import ak
+ak = os.environ.get("GEMINI_API_KEY")
 
 from memory import (
     add_memory,
